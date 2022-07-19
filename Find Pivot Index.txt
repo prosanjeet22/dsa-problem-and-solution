@@ -1,0 +1,47 @@
+first approach:
+use two loop 
+for(int i=0;i<n;i++)
+{
+sum+=arr[i];
+for(int j=i+2;j<n;j++)
+{
+int rsum+=arr[j];
+}
+if(sum==rsum)
+retrun i+1;
+}
+
+
+second method:-
+first sum of index array;
+tofind the leftsum=sum[i]-arr[i];//it will give left sum;
+to find the rsum=total-sum[i];
+if(lsum==rsum)
+return i;
+
+calculate the sum of ri
+
+
+
+
+class Solution {
+    public int pivotIndex(int[] nums) {
+        
+        int l=nums.length;
+        int sum=0;
+        int []arr=new int[nums.length];
+        for(int i=0;i<l;i++)
+        {
+           sum+=nums[i];
+            arr[i]=sum;
+        }
+        for(int i=0;i<l;i++)
+        {
+           int  lsum=arr[i]-nums[i];
+            int rsum=sum-arr[i];
+            if(lsum==rsum)
+                return i;
+        }
+        return -1;
+    }
+}
